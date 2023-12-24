@@ -1,3 +1,3 @@
-# c-sdl-world
+# c-sdl-tetris
 
-Little project for world creation :D
+Little project for tetris :D
