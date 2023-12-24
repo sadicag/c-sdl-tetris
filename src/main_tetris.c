@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "app/app.h"
+#include "tetris/tetris.h"
 
 /**
  *  The main function, creates an App
@@ -23,7 +23,7 @@ int main(int argc, char* args[])
   app_status_print("Executing the App Loop"); 
   // Start the main app loop
   while(1)
-  {
+          {
     // Prepare the scene to be presented
     prepare_app_scene(app);
     
