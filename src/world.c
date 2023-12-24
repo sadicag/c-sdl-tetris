@@ -12,13 +12,13 @@
 int main(int argc, char* args[])
 {
   // This will be the title of the Window
-  char app_title[256] = "World"; 
+  char app_title[256] = "Tetris"; 
 
   app_status_print("Creating and Initializing App"); 
 
   // Create and Initialize an App window
   // with the default values
-  App* app = init_app(app_title, 1280, 720);
+  App* app = init_app(app_title, 640, 480);
 
   app_status_print("Executing the App Loop"); 
   // Start the main app loop
