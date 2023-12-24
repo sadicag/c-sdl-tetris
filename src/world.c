@@ -13,11 +13,14 @@ int main(int argc, char* args[])
 {
   // This will be the title of the Window
   char app_title[256] = "World"; 
-  
+
+  app_status_print("Creating and Initializing App"); 
+
   // Create and Initialize an App window
   // with the default values
   App* app = init_app(app_title, 1280, 720);
 
+  app_status_print("Executing the App Loop"); 
   // Start the main app loop
   while(1)
   {
@@ -42,6 +45,8 @@ int main(int argc, char* args[])
     SDL_Delay(16);
   }
 
+  app_status_print("Quitting App"); 
+  
   // Free the contents of the App
   free_app(app);
   

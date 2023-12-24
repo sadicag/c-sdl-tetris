@@ -35,6 +35,11 @@ typedef struct {
 #include "error_handler/error_handler.h"
 
 /**
+ *  Include Status Handler
+ */
+#include "status_handler/status_handler.h"
+
+/**
  *  Functions
  */
 // Initialize the App with required parameters
