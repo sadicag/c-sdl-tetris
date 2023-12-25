@@ -23,7 +23,7 @@ typedef struct {
 /**
  *  Subfiles
  */
-#include "piece/piece.h"
+#include "tetris_piece/piece.h"
 #include "app/app.h"
 
 
