@@ -7,6 +7,13 @@ Piece *create_je()
 
   piece->type = je_t;
 
+  int in[8]  = {
+                  -2, -3,
+                  -2, -2,
+                  -2, -3,
+                  -2, -3
+               };
+
   int m1[25] = {
                   0, 0, 0, 0, 0,
                   0, 0, 1, 0, 0,
@@ -39,6 +46,7 @@ Piece *create_je()
                   0, 0, 0, 0, 0
                };
 
+  memcpy(piece->in, in, 8);
   memcpy(piece->m1, m1, 25);
   memcpy(piece->m2, m2, 25);
   memcpy(piece->m3, m3, 25);

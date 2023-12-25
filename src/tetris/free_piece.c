@@ -3,6 +3,7 @@
 
 void free_piece(Piece *piece)
 {
+  piece->type = 0x00;
   free(piece);
 }
 

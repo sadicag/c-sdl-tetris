@@ -1,15 +1,22 @@
-#ifndef CREATE_NE_C
-#define CREATE_NE_C
+#ifndef CREATE_TE_C
+#define CREATE_TE_C
 
-Piece *create_ne()
+Piece *create_te()
 {
   Piece *piece = malloc(sizeof(Piece));
 
-  piece->type = ne_t;
+  piece->type = te_t;
+
+  int in[8]  = {
+                  -2, -3,
+                  -2, -3,
+                  -2, -3,
+                  -2, -2 
+               };
 
   int m1[25] = {  
                   0, 0, 0, 0, 0,
-                  0, 0, 0, 1, 0,
+                  0, 0, 1, 0, 0,
                   0, 0, 2, 1, 0,
                   0, 0, 1, 0, 0,
                   0, 0, 0, 0, 0
@@ -18,8 +25,8 @@ Piece *create_ne()
   int m2[25] = {  
                   0, 0, 0, 0, 0,
                   0, 0, 0, 0, 0,
-                  0, 1, 2, 0, 0,
-                  0, 0, 1, 1, 0,
+                  0, 1, 2, 1, 0,
+                  0, 0, 1, 0, 0,
                   0, 0, 0, 0, 0
                };
 
@@ -27,18 +34,19 @@ Piece *create_ne()
                   0, 0, 0, 0, 0,
                   0, 0, 1, 0, 0,
                   0, 1, 2, 0, 0,
-                  0, 1, 0, 0, 0,
+                  0, 0, 1, 0, 0,
                   0, 0, 0, 0, 0
                };
 
   int m4[25] = {  
                   0, 0, 0, 0, 0,
-                  0, 1, 1, 0, 0,
-                  0, 0, 2, 1, 0,
+                  0, 0, 1, 0, 0,
+                  0, 1, 2, 1, 0,
                   0, 0, 0, 0, 0,
                   0, 0, 0, 0, 0
                };
 
+  memcpy(piece->in, in, 8);
   memcpy(piece->m1, m1, 25);
   memcpy(piece->m2, m2, 25);
   memcpy(piece->m3, m3, 25);
