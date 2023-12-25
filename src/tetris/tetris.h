@@ -24,7 +24,7 @@ typedef struct {
  *  Subfiles
  */
 #include "tetris_piece/piece.h"
-#include "app/app.h"
+#include "window_app/app.h"
 
 
 #endif

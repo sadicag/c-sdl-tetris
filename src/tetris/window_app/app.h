@@ -1,5 +1,5 @@
-#ifndef APP_H
-#define APP_H
+#ifndef WINDOW_APP_H
+#define WINDOW_APP_H
 
 /**
  *  App itself and the functions used
