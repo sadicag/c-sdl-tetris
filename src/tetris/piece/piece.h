@@ -72,6 +72,7 @@ void free_piece(Piece *piece);
 #include "create_ne.c"
 #include "create_se.c"
 #include "create_te.c"
+#include "free_piece.c"
 
 /**
  *  Subfiles
