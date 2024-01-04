@@ -1,10 +1,8 @@
-#ifndef APP_BASIC_INPUT_C
-#define APP_BASIC_INPUT_C
 
 /**
  *  A Basic input handler for SDL
  */
-INPUT_FLAG basic_app_input()
+INPUT_FLAG basic_engine_input()
 {
   SDL_Event event;
 
@@ -25,4 +23,3 @@ INPUT_FLAG basic_app_input()
   }
 }
 
-#endif

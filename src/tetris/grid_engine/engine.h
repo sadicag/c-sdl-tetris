@@ -1,5 +1,5 @@
-#ifndef WINDOW_APP_H
-#define WINDOW_APP_H
+#ifndef ENGINE_H
+#define ENGINE_H
 
 /**
  *  App itself and the functions used
@@ -26,7 +26,7 @@ typedef struct {
   SDL_Renderer  *renderer;  // Renderer for SDL
   SDL_Window    *window;  // Window for SDL
   char          title[256]; // Title of Window
-} App;
+} GridEngine;
 
 
 /**
@@ -42,10 +42,10 @@ typedef struct {
 /**
  *  Functions
  */
-// Initialize the App with required parameters
-App *init_app(char *app_title, Px width, Px height);
-// Free the App and its contents
-void free_app(App *app);
+// Initialize the GridEngine with required parameters
+GridEngine *init_engine(char *eng_title, Px width, Px height);
+// Free the GridEngine and its contents
+void free_engine(GridEngine *engine);
 
 /**
  *  Implementations

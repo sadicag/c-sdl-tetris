@@ -46,7 +46,7 @@ void free_board(Tetris *game);
 /**
  *  Subfiles
  */
-#include "window_app/app.h"
+#include "grid_engine/engine.h"
 
 
 #endif

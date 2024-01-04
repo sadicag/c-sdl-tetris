@@ -1,5 +1,5 @@
-#ifndef APP_STATUS_HANDLER_H
-#define APP_STATUS_HANDLER_H
+#ifndef STATUS_HANDLER_H
+#define STATUS_HANDLER_H
 
 /**
  *  Status reports that need to be printed for the
@@ -9,12 +9,12 @@
 /**
  *  Functions
  */
-void app_status_print(char* suffix);
+void engine_log(char* suffix);
 
 /**
  *  Implementations
  */
-#include "app_status_print.c"
+#include "engine_log.c"
 
 /**
  *  Subfiles

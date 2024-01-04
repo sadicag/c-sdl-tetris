@@ -1,5 +1,5 @@
-#ifndef APP_INPUT_H
-#define APP_INPUT_H
+#ifndef INPUT_H
+#define INPUT_H
 
 /**
  *  Input of the App is handled here and 
@@ -19,7 +19,7 @@ INPUT_FLAG win_evnt = 2; // Window Resized
 /**
  *  Functions
  */
-INPUT_FLAG basic_app_input();
+INPUT_FLAG basic_engine_input();
 
 /**
  *  Implementations

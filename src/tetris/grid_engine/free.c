@@ -1,5 +1,5 @@
-#ifndef APP_FREE_C
-#define APP_FREE_C
+#ifndef ENGINE_FREE_C
+#define ENGINE_FREE_C
 
 /**
  *  This function frees the contents of the app,
@@ -9,28 +9,28 @@
  *
  *  Afterall, the app pointer itself is free'd.
  */
-void free_app(App *app)
+void free_engine(GridEngine *engine)
 {
   // Set width and height values
   // of window to zero
-  app->SCR_Width = 0;
-  app->SCR_Height = 0;
+  engine->SCR_Width = 0;
+  engine->SCR_Height = 0;
 
   // Destroy the renderer
-  SDL_DestroyRenderer(app->renderer);
+  SDL_DestroyRenderer(engine->renderer);
   // Destroy the Window
-  SDL_DestroyWindow(app->window);
+  SDL_DestroyWindow(engine->window);
 
   // Quit the Subsystem of Renderer
-  SDL_QuitSubSystem(app->renderer_flags);
+  SDL_QuitSubSystem(engine->renderer_flags);
   // Quit the Subsystem of Window
-  SDL_QuitSubSystem(app->window_flags);
+  SDL_QuitSubSystem(engine->window_flags);
 
   // Quit SDL
   SDL_Quit();
 
   // Free Pointer
-  free(app);
+  free(engine);
 }
 
 #endif
