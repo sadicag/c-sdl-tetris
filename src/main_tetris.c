@@ -18,7 +18,7 @@ int main(int argc, char* args[])
 
   // Create and Initialize an App window
   // with the default values
-  App* app = init_app(app_title, 640, 480);
+  App* app = init_app(app_title, 480, 640);
 
   // Create and initialize the Game board
   Tetris *game = init_board();
@@ -26,17 +26,22 @@ int main(int argc, char* args[])
   app_status_print("Executing the App Loop"); 
   // Start the main app loop
   while(1)
-          {
-    // Prepare the scene to be presented
-    prepare_app_scene(app);
-    
+  {
     // Take Input and Apply
     INPUT_FLAG inf = basic_app_input();
     if (inf != inf_none)
     {
-      if (inf == inf_quit) break;
+      if (inf == inf_quit)  break; // If input flag is quit, break the loop
+      if (inf == win_evnt)   
+      { // Update the app screen height if necessary
+        app_status_print("Window event");
+        SDL_GetWindowSize(app->window, &app->SCR_Width, &app->SCR_Height);
+      }
     }
   
+    // Prepare the scene to be presented
+    prepare_app_scene(app);
+    
     // Present the prepared scene
     present_app_scene(app);
     

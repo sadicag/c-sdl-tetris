@@ -13,6 +13,7 @@ typedef unsigned int INPUT_FLAG; // Type for Input Flags
  */ 
 INPUT_FLAG inf_none = 0; // No Input
 INPUT_FLAG inf_quit = 1; // Quit the App
+INPUT_FLAG win_evnt = 2; // Window Resized
 
 
 /**

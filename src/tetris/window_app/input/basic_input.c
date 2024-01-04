@@ -15,7 +15,9 @@ INPUT_FLAG basic_app_input()
       case SDL_QUIT:
         return inf_quit;
       break;
-      
+      case SDL_WINDOWEVENT:
+        return win_evnt;
+      break; 
       default:
         return inf_none;
       break;

@@ -18,6 +18,7 @@ void prepare_app_scene(App *app)
   // Center the rectangle to the screen
   rect.x = (app->SCR_Width - rect.w)/2;
   rect.y = (app->SCR_Height - rect.h)/2;
+  
   SDL_RenderDrawRect(app->renderer, &rect);
   SDL_RenderFillRect(app->renderer, &rect);
   

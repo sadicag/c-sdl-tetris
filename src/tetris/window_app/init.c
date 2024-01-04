@@ -38,6 +38,9 @@ App *init_app(char *app_title, Px width, Px height)
 
   // Set the render quality
   SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+  
+  // Set the window size to be resizable 
+  SDL_SetWindowResizable(app->window, SDL_TRUE);
 
   // Initialize/Create the SDL Renderer
   app->renderer = SDL_CreateRenderer(app->window, 
