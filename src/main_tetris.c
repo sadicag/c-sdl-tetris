@@ -20,6 +20,9 @@ int main(int argc, char* args[])
   // with the default values
   App* app = init_app(app_title, 640, 480);
 
+  // Create and initialize the Game board
+  Tetris *game = init_board();
+
   app_status_print("Executing the App Loop"); 
   // Start the main app loop
   while(1)
@@ -46,9 +49,12 @@ int main(int argc, char* args[])
   }
 
   app_status_print("Quitting App"); 
+
+  // Free the contents of the game  
+  free_board(game);
   
   // Free the contents of the App
   free_app(app);
-  
+
   return EXIT_SUCCESS;
 }

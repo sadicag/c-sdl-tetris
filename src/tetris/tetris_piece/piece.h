@@ -60,6 +60,7 @@ Piece *create_je();
 Piece *create_ne();
 Piece *create_se();
 Piece *create_te();
+int is_position_full(ActivePiece *active_piece, int x, int y);
 void free_piece(Piece *piece);
 
 /**
@@ -72,7 +73,9 @@ void free_piece(Piece *piece);
 #include "create_ne.c"
 #include "create_se.c"
 #include "create_te.c"
+#include "ispossfull.c"
 #include "free_piece.c"
+
 
 /**
  *  Subfiles
