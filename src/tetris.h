@@ -1,18 +1,25 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
-
 /**
  *  Dependencies
  */
-#include "tetris_piece/piece.h"
 #include <stdlib.h>
+#include <time.h>
+#include "game/tetris_piece/piece.h"
+
+const time_t WAIT_TIME = 700; // milliseconds
 
 #define BOARD_WIDTH  10
 #define BOARD_HEIGHT 20
 
 int POSITION_FREE = 0;
 int POSITION_FULL = 1;
+
+typedef struct {
+  int x;
+  int y; 
+} Coordinate;
 
 /**
  *  Define the board where the game
@@ -36,17 +43,17 @@ void free_board(Tetris *game);
 /**
  *  Implementations
  */
-#include "init.c"
-#include "storepiece.c"
-#include "deletelines.c"
-#include "ismoveposs.c"
-#include "isover.c"
-#include "free.c"
+#include "game/init.c"
+#include "game/storepiece.c"
+#include "game/deletelines.c"
+#include "game/ismoveposs.c"
+#include "game/isover.c"
+#include "game/free.c"
 
 /**
  *  Subfiles
  */
-#include "grid_engine/engine.h"
+#include "game/grid_engine/engine.h"
 
 
 #endif

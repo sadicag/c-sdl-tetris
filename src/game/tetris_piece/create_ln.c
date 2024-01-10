@@ -46,11 +46,16 @@ Piece *create_ln()
                   0, 0, 0, 0, 0
                };
 
-  memcpy(piece->in, in, 8);
-  memcpy(piece->m1, m1, 25);
-  memcpy(piece->m2, m2, 25);
-  memcpy(piece->m3, m3, 25);
-  memcpy(piece->m4, m4, 25);
+  for(int i = 0; i < 8; i++)
+    piece->in[i] = in[i];
+  for(int i = 0; i < 25; i++)
+    piece->m1[i] = m1[i];
+  for(int i = 0; i < 25; i++)
+    piece->m2[i] = m2[i];
+  for(int i = 0; i < 25; i++)
+    piece->m3[i] = m3[i];
+  for(int i = 0; i < 25; i++)
+    piece->m4[i] = m4[i];
 
   return piece;
 

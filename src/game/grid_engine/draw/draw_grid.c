@@ -22,8 +22,8 @@ void draw_grid(GridEngine *engine, int W, int H, int board[H][W])
       rect.y = center_y - ((H/2)*size) + (h)*size;
       rect.x = center_x - ((W/2)*size) + (w)*size;
       SDL_RenderDrawRect(engine->renderer, &rect);
-      // If full in board, draw
-      if (board[h][w] == 1) SDL_RenderFillRect(engine->renderer, &rect);
+      // If full in board, fill in the rectangle
+      if (board[h][w]) SDL_RenderFillRect(engine->renderer, &rect);
     }
   }
   

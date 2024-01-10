@@ -53,6 +53,7 @@ typedef struct {
 /**
  *  Functions
  */
+
 Piece *create_sq();
 Piece *create_ln();
 Piece *create_le();
@@ -60,12 +61,16 @@ Piece *create_je();
 Piece *create_ne();
 Piece *create_se();
 Piece *create_te();
+Piece *create_piece(int idx);
+ActivePiece *create_active_piece(int idx);
 int is_position_full(ActivePiece *active_piece, int x, int y);
 void free_piece(Piece *piece);
+void free_active_piece(ActivePiece *a);
 
 /**
  *  Implementations
  */
+
 #include "create_sq.c"
 #include "create_ln.c"
 #include "create_le.c"
@@ -73,9 +78,11 @@ void free_piece(Piece *piece);
 #include "create_ne.c"
 #include "create_se.c"
 #include "create_te.c"
+#include "create.c"
+#include "create_a.c"
 #include "ispossfull.c"
 #include "free_piece.c"
-
+#include "free_a_piece.c"
 
 /**
  *  Subfiles
