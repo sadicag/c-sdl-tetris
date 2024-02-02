@@ -8,6 +8,8 @@
 #include <time.h>
 #include "game/tetris_piece/piece.h"
 
+ActivePiece* active_piece; // Set the global active_piece
+
 const time_t WAIT_TIME = 700; // milliseconds
 
 #define BOARD_WIDTH  10
@@ -36,9 +38,13 @@ Tetris *init_board();
 Tetris *store_piece(Tetris *game, ActivePiece *active_piece);
 Tetris *delete_line(Tetris *game, int y);
 Tetris *delete_possible_lines(Tetris *game);
+Tetris *debug(Tetris *game, int rotation);
+Tetris *next_step(Tetris *game, Coordinate *_transform);
+Tetris *copy(Tetris *game);
 int is_move_possible(Tetris *game, ActivePiece *active_piece, int x, int y);
 int is_game_over(Tetris *game);
 void free_board(Tetris *game);
+void game_loop(Tetris *game);
 
 /**
  *  Implementations
@@ -49,6 +55,9 @@ void free_board(Tetris *game);
 #include "game/ismoveposs.c"
 #include "game/isover.c"
 #include "game/free.c"
+#include "game/debug.c"
+#include "game/copy.c"
+#include "game/next_step.c"
 
 /**
  *  Subfiles

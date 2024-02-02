@@ -1,73 +1,5 @@
 #include "tetris.h"
 
-Tetris *debug(Tetris *game, int rotation)
-{
-  for (int h = 0; h <  BOARD_HEIGHT; h++)
-  {
-    for (int w = 0; w < BOARD_WIDTH; w++)
-    {
-      game->board[h][w] = POSITION_FREE;
-    }
-  }
-  // DEBUGGING:
-  ActivePiece *active_piece;
-  // Left
-
-  active_piece = create_active_piece(6);
-  active_piece->y = 0;
-  active_piece->x = 0;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  active_piece = create_active_piece(1);
-  active_piece->y = 4;
-  active_piece->x = 0;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  active_piece = create_active_piece(2);
-  active_piece->y = 9;
-  active_piece->x = 0;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  active_piece = create_active_piece(0);
-  active_piece->y = 14;
-  active_piece->x = 2;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  // Right
-
-  active_piece = create_active_piece(4);
-  active_piece->y = 0;
-  active_piece->x = 5;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  active_piece = create_active_piece(5);
-  active_piece->y = 5;
-  active_piece->x = 5;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  active_piece = create_active_piece(3);
-  active_piece->y = 10;
-  active_piece->x = 5;
-  active_piece->rotation = rotation;
-  game = store_piece(game, active_piece);
-  free_active_piece(active_piece);
-
-  return game;
-
-}
-
 /**
  *  The main function, creates an App
  *  and currently holds the main app
@@ -90,6 +22,8 @@ int main(int argc, char* args[])
   // Create and initialize the Game board
   Tetris *game = init_board();
   
+  active_piece = NULL;
+
   // Initialize the transform for block movement 
   Coordinate transform;
   transform.x = 0;
@@ -100,14 +34,9 @@ int main(int argc, char* args[])
   // Set the random seed as the device timestamp
   srand((unsigned int)time(NULL));
 
-  ActivePiece* active_piece; // Set the global active_piece
-
   time_t time1, time2;
   time(&time1);
   time(&time2);
-
-  // debug:
-  int rotat = 1;
 
   // Start the main app loop
   while(1)
@@ -124,29 +53,33 @@ int main(int argc, char* args[])
         SDL_GetWindowSize(engine->window, &engine->SCR_Width, &engine->SCR_Height);
       }
       if (inf == key_prss)
-      { // There is a movement, check if possible!
-        if (transform.x > 0) {engine_log("RIGHT\tPRESS");}
-        if (transform.x < 0) {engine_log("LEFT\tPRESS");}
-        if (transform.y < 0) {engine_log("DOWN\tPRESS");}
-      } 
+      {
+        engine_log("Key Press");
+      }
     }
   
     // Apply Tetris Logic Here
     
+    // Wait for timer 
     time(&time2);
-    if (difftime(time2, time1) >= (WAIT_TIME*0.001)) {rotat++; time(&time1);}
-    if (rotat > 4) {rotat = 1;}
-    game = debug(game, rotat); 
+    if (difftime(time2, time1) >= (WAIT_TIME*0.001)) {game=next_step(game, &transform); time(&time1);}
 
     // Prepare the scene to be presented
     prepare_engine_scene(engine);
     
     // Draw the game grid on the window
-    draw_grid(engine, BOARD_WIDTH, BOARD_HEIGHT, game->board);
+    // Before drawing it, to also print the active piece
+    // store it in the board
+    Tetris *temp_game = copy(game);
+
+    store_piece(temp_game, active_piece);
+    draw_grid(engine, BOARD_WIDTH, BOARD_HEIGHT, temp_game->board);
 
     // Present the prepared scene
     present_engine_scene(engine);
     
+    free_board(temp_game);
+
     // Delay with a value of 16 milliseconds
     // to limit the loop for around 62 frames
     // per second. Also prevents the app from
@@ -156,6 +89,9 @@ int main(int argc, char* args[])
   }
 
   engine_log("Quitting App"); 
+
+  // Free active piece
+  free_active_piece(active_piece);
 
   // Free the contents of the game  
   free_board(game);

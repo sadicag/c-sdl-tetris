@@ -5,6 +5,8 @@
  */
 Tetris *store_piece(Tetris *game, ActivePiece *active_piece)
 {
+  if (active_piece == NULL) {return game;}
+
   for(int i1 = active_piece->x, i2 = 0; i1 < active_piece->x + 5; i1++, i2++)
   {
     for(int j1 = active_piece->y, j2 = 0; j1 < active_piece->y + 5; j1++, j2++)
