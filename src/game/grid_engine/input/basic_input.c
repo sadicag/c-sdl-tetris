@@ -28,6 +28,12 @@ INPUT_FLAG basic_engine_input(Coordinate *transform)
           case SDLK_DOWN:
             transform->y--;
           break;
+          case SDLK_SPACE:
+            return rot_prss;
+          break;
+          case SDLK_ESCAPE:
+            return inf_quit;
+          break;
           default:
           break;
         }

@@ -39,7 +39,7 @@ Tetris *store_piece(Tetris *game, ActivePiece *active_piece);
 Tetris *delete_line(Tetris *game, int y);
 Tetris *delete_possible_lines(Tetris *game);
 Tetris *debug(Tetris *game, int rotation);
-Tetris *next_step(Tetris *game, Coordinate *_transform);
+Tetris *next_step(Tetris *game);
 Tetris *copy(Tetris *game);
 int is_move_possible(Tetris *game, ActivePiece *active_piece, int x, int y);
 int is_game_over(Tetris *game);

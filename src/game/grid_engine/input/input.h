@@ -15,6 +15,7 @@ INPUT_FLAG inf_none   = 0x0A; // No Input
 INPUT_FLAG inf_quit   = 0x0B; // Quit the App
 INPUT_FLAG win_evnt   = 0x0C; // Window Resized
 INPUT_FLAG key_prss   = 0x0D; // Keyboard Press
+INPUT_FLAG rot_prss   = 0x0E; // Rotate Press
 
 /**
  *  Functions

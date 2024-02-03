@@ -54,7 +54,23 @@ int main(int argc, char* args[])
       }
       if (inf == key_prss)
       {
-        engine_log("Key Press");
+        if (transform.x > 0) 
+        {
+          active_piece->x = active_piece->x + 1;
+        }
+        if (transform.x < 0) 
+        {
+          active_piece->x = active_piece->x - 1;
+        }
+        if (transform.y < 0) 
+        {
+          active_piece->y = active_piece->y + 1;
+        }
+      }
+      if (inf == rot_prss)
+      {
+        active_piece->rotation++;
+        if (active_piece->rotation == 4) { active_piece->rotation = 1; }
       }
     }
   
@@ -62,7 +78,7 @@ int main(int argc, char* args[])
     
     // Wait for timer 
     time(&time2);
-    if (difftime(time2, time1) >= (WAIT_TIME*0.001)) {game=next_step(game, &transform); time(&time1);}
+    if (difftime(time2, time1) >= (WAIT_TIME*0.001)) {game=next_step(game); time(&time1);}
 
     // Prepare the scene to be presented
     prepare_engine_scene(engine);
